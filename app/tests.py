@@ -4,7 +4,6 @@ def search(query):
     genius = Genius("XXX")
     songs = genius.search_songs(query)
     songs = [song['result'] for song in songs['hits']]
-    # select only 'artist_names', 'header_image_thumbnail_url', 'title', 'path'
     songs = [{key: song[key] for key in ['artist_names', 'header_image_thumbnail_url', 'title', 'path', 'id', 'url']} for song in songs]    
     return songs
 
